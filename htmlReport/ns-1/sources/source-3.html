@@ -1,0 +1,157 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ComponentCalculator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">model</a>
+</div>
+
+<h1>Coverage Summary for Class: ComponentCalculator (model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ComponentCalculator</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package model;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;// Represents a calculator that calculates the final grade in % for each
+&nbsp;// course component by taking the sum of all assignments  grades in the session
+&nbsp;public class ComponentCalculator implements SumCalculator {
+&nbsp;
+&nbsp;    private List&lt;Assignment&gt; assignments;       // a list of assignments
+&nbsp;
+&nbsp;    // REQUIRES: componentGrade &lt;= maxMark
+&nbsp;    // EFFECTS: constructs a course component calculator with an empty list of assignments
+<b class="fc">&nbsp;    public ComponentCalculator() {</b>
+<b class="fc">&nbsp;        this.assignments = new ArrayList&lt;&gt;();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // MODIFIES: this
+&nbsp;    // EFFECTS: add an assignment to the list of assignments
+&nbsp;    public void addAssignment(Assignment a) {
+<b class="fc">&nbsp;        assignments.add(a);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // REQUIRES: non-empty list
+&nbsp;    // MODIFIES: this
+&nbsp;    // EFFECTS: removes an assignment from the list of assignments if it contains it
+&nbsp;    public void removeAssignment(Assignment a) {
+<b class="fc">&nbsp;        if (assignments.contains(a)) {</b>
+<b class="fc">&nbsp;            assignments.remove(a);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    // REQUIRES: sum &lt;= maxMark of courseComponent
+&nbsp;    // EFFECTS: calculates the sum of all assignment grades and returns it
+&nbsp;    @Override
+&nbsp;    public int calculateSum() {
+<b class="fc">&nbsp;        int sum = 0;</b>
+<b class="fc">&nbsp;        for (Assignment a : assignments) {</b>
+<b class="fc">&nbsp;            sum = sum + a.getGrade();</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return sum;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // EFFECTS: returns a list of all assignments
+&nbsp;    public List&lt;Assignment&gt; getAssignments() {
+<b class="fc">&nbsp;        return assignments;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // REQUIRES: non-empty list
+&nbsp;    // EFFECTS: sets a list of assignments for a course component
+&nbsp;    public void setAssignments(List&lt;Assignment&gt; assignments) {
+<b class="fc">&nbsp;        this.assignments = assignments;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-10-13 15:02</div>
+</div>
+</body>
+</html>

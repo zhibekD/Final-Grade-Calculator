@@ -1,0 +1,19 @@
+{
+    "finalGrade": 0,
+    "listOfCourses": [
+        {
+            "courseName": "cs",
+            "courseCalculator": {"components": []},
+            "session": "2023W",
+            "term": 1,
+            "finalGrade": 0
+        },
+        {
+            "courseName": "math",
+            "courseCalculator": {"components": []},
+            "session": "2023S",
+            "term": 2,
+            "finalGrade": 0
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "finalGrade": 0,
+    "listOfCourses": [{
+        "courseName": "Computer Science",
+        "courseCalculator": {"components": [{
+            "componentCalculator": {"assignments": [
+                {
+                    "grade": 90,
+                    "maxMark": 100,
+                    "assignmentName": "Assignment1"
+                },
+                {
+                    "grade": 85,
+                    "maxMark": 100,
+                    "assignmentName": "Assignment2"
+                }
+            ]},
+            "finalGrade": 0,
+            "componentName": "Assignments",
+            "maxMark": 100
+        }]},
+        "session": "2023W",
+        "term": 1,
+        "finalGrade": 0
+    }]
+}

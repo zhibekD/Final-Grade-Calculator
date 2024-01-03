@@ -1,0 +1,49 @@
+{
+  "listOfCourses": [
+    {
+      "courseName": "cs101",
+      "term": 1,
+      "session": "2023W",
+      "courseCalculator": {
+        "components": [
+          {
+            "componentName": "Labs",
+            "maxMark": 100,
+            "componentCalculator": {
+              "assignments": [
+                {
+                  "assignmentName": "Lab 1",
+                  "grade": 2,
+                  "maxMark": 2
+                },
+                {
+                  "assignmentName": "Lab 2",
+                  "grade": 20,
+                  "maxMark": 50
+                }
+              ]
+            }
+          },
+          {
+            "componentName": "Exams",
+            "maxMark": 100,
+            "componentCalculator": {
+              "assignments": [
+                {
+                  "assignmentName": "Midterm",
+                  "grade": 40,
+                  "maxMark": 45
+                },
+                {
+                  "assignmentName": "Final Exam",
+                  "grade": 40,
+                  "maxMark": 50
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

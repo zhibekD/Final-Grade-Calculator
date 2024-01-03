@@ -1,0 +1,189 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Course</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">model</a>
+</div>
+
+<h1>Coverage Summary for Class: Course (model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Course</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (18/18)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package model;
+&nbsp;
+&nbsp;// Represents a Course with its name, term and session it was taken in, final grade earned for it in %,
+&nbsp;// a list of course components that a course is comprised (sum of course components&#39; grades is equal to course
+&nbsp;// final grade, sum of course components&#39; maxMarks has to be equal to course maxMark), and a max mark possible to
+&nbsp;// earn for a course in % (100%), and a course calculator
+&nbsp;public class Course {
+&nbsp;
+&nbsp;    private String name;                        // a course name
+&nbsp;    private int term;                           // terms where False is term 1, True is term 2
+&nbsp;    private String session;                     // the term the course is taken
+&nbsp;    private int finalGrade;                     // the final course grade
+&nbsp;    private CourseCalculator courseCalculator;  // a course calculator
+<b class="fc">&nbsp;    private final int maxMark = 100;            // max mark possible in % for the course</b>
+&nbsp;
+&nbsp;    // EFFECTS: constructs a course with name, term and session it is taken in, a course calculator as parameters,
+&nbsp;    //          while a final grade in % is set to 0, a list of components for course grade
+&nbsp;    //          calculation, and a max mark possible for the course is set 100
+<b class="fc">&nbsp;    public Course(String name, int term, String session, CourseCalculator courseCalculator) {</b>
+<b class="fc">&nbsp;        this.name = name;</b>
+<b class="fc">&nbsp;        this.term = term;</b>
+<b class="fc">&nbsp;        this.session = session;</b>
+<b class="fc">&nbsp;        this.finalGrade = 0;</b>
+<b class="fc">&nbsp;        this.courseCalculator = courseCalculator;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // EFFECTS: returns a course name
+&nbsp;    public String getName() {
+<b class="fc">&nbsp;        return name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // REQUIRES: non-empty string
+&nbsp;    // MODIFIES: this
+&nbsp;    // EFFECTS: sets a course name
+&nbsp;    public void setName(String name) {
+<b class="fc">&nbsp;        this.name = name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // EFFECTS: returns a term a course is taken
+&nbsp;    public int getTerm() {
+<b class="fc">&nbsp;        return term;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // REQUIRES: 1 for term one, 2 for term two
+&nbsp;    // MODIFIES: this
+&nbsp;    // EFFECTS: sets a term a course is taken
+&nbsp;    public void setTerm(int term) {
+<b class="fc">&nbsp;        this.term = term;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // EFFECTS: returns a session a course is taken
+&nbsp;    public String getSession() {
+<b class="fc">&nbsp;        return session;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // REQUIRES: year and letter W for Winter session and S for Summer session
+&nbsp;    // MODIFIES: this
+&nbsp;    // EFFECTS: sets a session a course is taken
+&nbsp;    public void setSession(String session) {
+<b class="fc">&nbsp;        this.session = session;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // REQUIRES: finalGrade &lt;= maxMark (100%)
+&nbsp;    // MODIFIES: this
+&nbsp;    // EFFECTS: returns a final grade for a course
+&nbsp;    public int getFinalGrade() {
+<b class="fc">&nbsp;        this.finalGrade = courseCalculator.calculateSum();</b>
+<b class="fc">&nbsp;        return finalGrade;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // EFFECTS: returns a max available mark in % for the course
+&nbsp;    public int getMaxMark() {
+<b class="fc">&nbsp;        return maxMark;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // EFFECTS: returns a course calculator for the course
+&nbsp;    public CourseCalculator getCourseCalculator() {
+<b class="fc">&nbsp;        return courseCalculator;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // MODIFIES: this
+&nbsp;    // EFFECTS: sets a course calculator for a course
+&nbsp;    public void setCourseCalculator(CourseCalculator courseCalculator) {
+<b class="fc">&nbsp;        this.courseCalculator = courseCalculator;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-10-13 15:02</div>
+</div>
+</body>
+</html>

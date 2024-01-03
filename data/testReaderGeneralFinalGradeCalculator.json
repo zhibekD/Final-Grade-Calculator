@@ -1,0 +1,20 @@
+{
+  "listOfCourses": [
+    {
+      "courseName": "cs",
+      "term": 1,
+      "session": "2023W",
+      "courseCalculator": {
+        "components": []
+      }
+    },
+    {
+      "courseName": "math",
+      "term": 2,
+      "session": "2023S",
+      "courseCalculator": {
+        "components": []
+      }
+    }
+  ]
+}

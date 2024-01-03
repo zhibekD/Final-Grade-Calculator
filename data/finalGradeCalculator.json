@@ -1,0 +1,98 @@
+{
+    "finalGrade": 0,
+    "listOfCourses": [
+        {
+            "courseName": "cs",
+            "courseCalculator": {"components": [
+                {
+                    "componentCalculator": {"assignments": [{
+                        "grade": 20,
+                        "maxMark": 20,
+                        "assignmentName": "midterm1"
+                    }]},
+                    "finalGrade": 0,
+                    "componentName": "midterms",
+                    "maxMark": 20
+                },
+                {
+                    "componentCalculator": {"assignments": [
+                        {
+                            "grade": 20,
+                            "maxMark": 20,
+                            "assignmentName": "midterm1"
+                        },
+                        {
+                            "grade": 19,
+                            "maxMark": 20,
+                            "assignmentName": "midterme2"
+                        }
+                    ]},
+                    "finalGrade": 0,
+                    "componentName": "midterms",
+                    "maxMark": 40
+                }
+            ]},
+            "session": "2023W",
+            "term": 1,
+            "finalGrade": 0
+        },
+        {
+            "courseName": "math",
+            "courseCalculator": {"components": [
+                {
+                    "componentCalculator": {"assignments": [
+                        {
+                            "grade": 20,
+                            "maxMark": 20,
+                            "assignmentName": "a1"
+                        },
+                        {
+                            "grade": 10,
+                            "maxMark": 20,
+                            "assignmentName": "a2"
+                        }
+                    ]},
+                    "finalGrade": 0,
+                    "componentName": "assignments",
+                    "maxMark": 40
+                },
+                {
+                    "componentCalculator": {"assignments": [{
+                        "grade": 5,
+                        "maxMark": 5,
+                        "assignmentName": "midterm1"
+                    }]},
+                    "finalGrade": 0,
+                    "componentName": "exams",
+                    "maxMark": 10
+                }
+            ]},
+            "session": "2023W",
+            "term": 2,
+            "finalGrade": 0
+        },
+        {
+            "courseName": "math101",
+            "courseCalculator": {"components": [{
+                "componentCalculator": {"assignments": [{
+                    "grade": 1,
+                    "maxMark": 4,
+                    "assignmentName": "Lab1"
+                }]},
+                "finalGrade": 0,
+                "componentName": "labs",
+                "maxMark": 20
+            }]},
+            "session": "2023W",
+            "term": 1,
+            "finalGrade": 0
+        },
+        {
+            "courseName": "engl",
+            "courseCalculator": {"components": []},
+            "session": "2022W",
+            "term": 1,
+            "finalGrade": 0
+        }
+    ]
+}

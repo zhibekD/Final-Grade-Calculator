@@ -1,0 +1,233 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > FinalGradeCalculator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">model</a>
+</div>
+
+<h1>Coverage Summary for Class: FinalGradeCalculator (model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FinalGradeCalculator</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/43)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package model;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;// Represents a calculator that calculates the final grade in % by taking
+&nbsp;// the average (sum of all final grades from each course divided by the number
+&nbsp;// of courses taken in the session)
+&nbsp;public class FinalGradeCalculator implements SumCalculator {
+&nbsp;
+&nbsp;    private List&lt;Course&gt; courses;   // list of courses
+&nbsp;    private int finalGrade;         // final grade in % (average of all courses)
+&nbsp;
+&nbsp;    // REQUIRES: final grade &lt;= 100%
+&nbsp;    // EFFECTS: constructs a final grade calculator with an empty list of courses,
+&nbsp;    //          and a final grade in % is set to 0
+<b class="nc">&nbsp;    public FinalGradeCalculator() {</b>
+<b class="nc">&nbsp;        this.courses = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;        this.finalGrade = 0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // MODIFIES: this
+&nbsp;    // EFFECTS: add a course to the list of courses
+&nbsp;    public void addCourse(Course c) {
+<b class="nc">&nbsp;        courses.add(c);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // REQUIRES: non-empty list
+&nbsp;    // MODIFIES: this
+&nbsp;    // EFFECTS: removes a course from the list of courses if it contains it
+&nbsp;    public void removeCourse(Course c) {
+<b class="nc">&nbsp;        if (courses.contains(c)) {</b>
+<b class="nc">&nbsp;            courses.remove(c);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    // REQUIRES: average is a final grade in % &lt;= 100, non-empty list of courses
+&nbsp;    // EFFECTS: calculates the average grade for all course grades and returns it
+&nbsp;    public int calculateAverage() {
+<b class="nc">&nbsp;        return calculateSum() / courses.size();</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    // REQUIRES: sum &lt;= sum of all maxMarks for courses
+&nbsp;    // EFFECTS: calculates the sum of all course grades and returns it
+&nbsp;    @Override
+&nbsp;    public int calculateSum() {
+<b class="nc">&nbsp;        int sum = 0;</b>
+<b class="nc">&nbsp;        for (Course c : courses) {</b>
+<b class="nc">&nbsp;            sum = sum + c.getFinalGrade();</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        return sum;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // EFFECTS: returns the list of all courses
+&nbsp;    public List&lt;Course&gt; getCourses() {
+<b class="nc">&nbsp;        return courses;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // MODIFIES: this
+&nbsp;    // EFFECTS: sets a list of courses
+&nbsp;    public void setCourses(List&lt;Course&gt; courses) {
+<b class="nc">&nbsp;        this.courses = courses;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // REQUIRES: non-empty list of courses
+&nbsp;    // MODIFIES: this
+&nbsp;    // EFFECTS: sorts list of courses from highest to lowest by their final grade
+&nbsp;    public void sortCoursesByFinalGradeHighest(List&lt;Course&gt; courses) {
+<b class="nc">&nbsp;        int n = courses.size();</b>
+<b class="nc">&nbsp;        for (int i = 0; i &lt; n - 1; i++) {</b>
+<b class="nc">&nbsp;            for (int j = 0; j &lt; n - i - 1; j++) {</b>
+<b class="nc">&nbsp;                if (courses.get(j).getFinalGrade() &lt; courses.get(j + 1).getFinalGrade()) {</b>
+<b class="nc">&nbsp;                    Course temp = courses.get(j);</b>
+<b class="nc">&nbsp;                    courses.set(j, courses.get(j + 1));</b>
+<b class="nc">&nbsp;                    courses.set(j + 1, temp);</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    // REQUIRES: non-empty list of courses
+&nbsp;    // MODIFIES: courses
+&nbsp;    // EFFECTS: sorts list of courses from lowest to highest by their final grade
+&nbsp;    public void sortCoursesByFinalGradeLowest(List&lt;Course&gt; courses) {
+<b class="nc">&nbsp;        int n = courses.size();</b>
+<b class="nc">&nbsp;        for (int i = 0; i &lt; n - 1; i++) {</b>
+<b class="nc">&nbsp;            for (int j = 0; j &lt; n - i - 1; j++) {</b>
+<b class="nc">&nbsp;                if (courses.get(j).getFinalGrade() &gt; courses.get(j + 1).getFinalGrade()) {</b>
+<b class="nc">&nbsp;                    Course temp = courses.get(j);</b>
+<b class="nc">&nbsp;                    courses.set(j, courses.get(j + 1));</b>
+<b class="nc">&nbsp;                    courses.set(j + 1, temp);</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    // EFFECTS: returns a list of courses belonging to the specified session
+&nbsp;    public List&lt;Course&gt; filterCoursesBySession(String session) {
+<b class="nc">&nbsp;        List&lt;Course&gt; filteredCourses = new ArrayList&lt;&gt;();</b>
+&nbsp;
+<b class="nc">&nbsp;        for (Course course : courses) {</b>
+<b class="nc">&nbsp;            if (course.getSession().equals(session)) {</b>
+<b class="nc">&nbsp;                filteredCourses.add(course);</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+<b class="nc">&nbsp;        return filteredCourses;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // EFFECTS: calculates and returns the average final grade for the specified session,
+&nbsp;    //          if list is empty returns 0
+&nbsp;    public int calculateAverageForSession(String session) {
+<b class="nc">&nbsp;        List&lt;Course&gt; filteredCourses = filterCoursesBySession(session);</b>
+&nbsp;
+<b class="nc">&nbsp;        if (filteredCourses.isEmpty()) {</b>
+<b class="nc">&nbsp;            System.out.println(&quot;No courses found for the specified session.&quot;);</b>
+<b class="nc">&nbsp;            return 0;</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        int totalFinalGrade = 0;</b>
+<b class="nc">&nbsp;        for (Course course : filteredCourses) {</b>
+<b class="nc">&nbsp;            totalFinalGrade += course.getFinalGrade();</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+<b class="nc">&nbsp;        return totalFinalGrade / filteredCourses.size();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-10-13 15:02</div>
+</div>
+</body>
+</html>
